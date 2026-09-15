@@ -14,6 +14,7 @@ export const site = {
     lat: 13.7616,
     lng: 100.4969,
   },
+  mapsQuery: "Marni BKK Hostel, Phra Nakhon, Bangkok",
   checkIn: "2:00 PM",
   checkOut: "12:00 PM",
   founded: 2023,

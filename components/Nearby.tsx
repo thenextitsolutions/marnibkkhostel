@@ -54,7 +54,7 @@ export default function Nearby() {
           latitude: site.address.lat,
           longitude: site.address.lng,
         },
-        hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.line)}`,
+        hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`,
         containedInPlace: {
           "@type": "AdministrativeArea",
           name: "Phra Nakhon",

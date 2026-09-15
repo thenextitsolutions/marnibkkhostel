@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       `${site.url}/images/hero-exterior.png`,
     ],
     logo: `${site.url}/icon`,
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.line)}`,
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`,
     containedInPlace: {
       "@type": "AdministrativeArea",
       name: "Phra Nakhon",
