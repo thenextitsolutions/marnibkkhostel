@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import PageIntro from "@/components/PageIntro";
 import Reviews from "@/components/Reviews";
 import { site, ratings } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "Marni BKK Hostel is a 2-star hostel in Phra Nakhon, Bangkok, opened in 2023 with 60 rooms, steps from Khaosan Road and the Grand Palace.",
-};
+export const metadata = routeMeta(
+  "/about",
+  "About Us",
+  "Marni BKK Hostel is a 2-star hostel in Phra Nakhon, Bangkok, opened in 2023 with 60 rooms, steps from Khaosan Road and the Grand Palace."
+);
 
 export default function AboutPage() {
   return (

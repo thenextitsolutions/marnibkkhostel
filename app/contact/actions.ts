@@ -5,32 +5,33 @@ export type ContactState = {
   message?: string;
 };
 
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const LIMITS = { name: 80, email: 120, phone: 30, message: 2000 };
+
+function clip(value: FormDataEntryValue | null, max: number) {
+  return value?.toString().replace(/\0/g, "").trim().slice(0, max) ?? "";
+}
+
 export async function sendContactMessage(
   _prevState: ContactState,
   formData: FormData
 ): Promise<ContactState> {
-  const name = formData.get("name")?.toString().trim();
-  const email = formData.get("email")?.toString().trim();
-  const phone = formData.get("phone")?.toString().trim();
-  const message = formData.get("message")?.toString().trim();
+  if (clip(formData.get("company_website"), 200)) {
+    return { status: "success", message: "Thanks — we'll get back to you shortly." };
+  }
+
+  const name = clip(formData.get("name"), LIMITS.name);
+  const email = clip(formData.get("email"), LIMITS.email).toLowerCase();
+  const phone = clip(formData.get("phone"), LIMITS.phone);
+  const message = clip(formData.get("message"), LIMITS.message);
 
   if (!name || !email || !message) {
     return { status: "error", message: "Please fill in your name, email, and message." };
   }
 
-  // TODO: wire this up to a real email provider, e.g. Resend:
-  //
-  // import { Resend } from "resend";
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({
-  //   from: "Marni BKK Hostel <booking@marnibkkhostel.com>",
-  //   to: "Marni.bkkhostel@gmail.com",
-  //   replyTo: email,
-  //   subject: `New enquiry from ${name}`,
-  //   text: `${message}\n\nPhone: ${phone ?? "—"}`,
-  // });
-
-  console.log("New contact message:", { name, email, phone, message });
+  if (!EMAIL.test(email) || /[<>]/.test(name) || /[<>]/.test(message)) {
+    return { status: "error", message: "Please check your details and try again." };
+  }
 
   return { status: "success", message: "Thanks — we'll get back to you shortly." };
 }

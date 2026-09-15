@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import PageIntro from "@/components/PageIntro";
 import FaqAccordion from "@/components/FaqAccordion";
 import BookButton from "@/components/BookButton";
 import { faqs } from "@/lib/data";
+import { routeMeta, safeJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-  description:
-    "Answers to common questions about staying at Marni BKK Hostel — check-in times, booking, Wi-Fi, private rooms, and more.",
-};
+export const metadata = routeMeta(
+  "/faq",
+  "FAQ",
+  "Answers to common questions about staying at Marni BKK Hostel — check-in times, booking, Wi-Fi, private rooms, and more."
+);
 
 export default function FaqPage() {
   const jsonLd = {
@@ -25,7 +25,7 @@ export default function FaqPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <PageIntro
         eyebrow="Good to know"

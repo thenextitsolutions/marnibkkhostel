@@ -22,7 +22,11 @@ export default function ContactForm() {
   const [state, formAction] = useFormState(sendContactMessage, initialState);
 
   return (
-    <form action={formAction} className="space-y-5">
+    <form action={formAction} className="relative space-y-5">
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="company_website">Website</label>
+        <input id="company_website" name="company_website" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm font-medium">
@@ -32,6 +36,8 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
+            maxLength={80}
+            autoComplete="name"
             className="mt-1.5 w-full rounded-2xl border border-ink/15 bg-white px-4 py-2.5 outline-none focus:border-teal"
           />
         </div>
@@ -44,6 +50,8 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
+            maxLength={120}
+            autoComplete="email"
             className="mt-1.5 w-full rounded-2xl border border-ink/15 bg-white px-4 py-2.5 outline-none focus:border-teal"
           />
         </div>
@@ -55,6 +63,8 @@ export default function ContactForm() {
         <input
           id="phone"
           name="phone"
+          maxLength={30}
+          autoComplete="tel"
           className="mt-1.5 w-full rounded-2xl border border-ink/15 bg-white px-4 py-2.5 outline-none focus:border-teal"
         />
       </div>
@@ -67,6 +77,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
+          maxLength={2000}
           className="mt-1.5 w-full rounded-2xl border border-ink/15 bg-white px-4 py-2.5 outline-none focus:border-teal"
         />
       </div>

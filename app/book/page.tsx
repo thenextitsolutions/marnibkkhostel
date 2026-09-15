@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { ArrowUpRight, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import PageIntro from "@/components/PageIntro";
 import { bookingChannels, site } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Book your stay",
-  description:
-    "Reserve Marni BKK Hostel direct, or compare Booking.com, Agoda, Hostelworld, Expedia, Hotels.com, Google Hotels, and Trivago.",
-};
+export const metadata = routeMeta(
+  "/book",
+  "Book your stay",
+  "Reserve Marni BKK Hostel direct, or compare Booking.com, Agoda, Hostelworld, Expedia, Hotels.com, Google Hotels, and Trivago."
+);
 
 export default function BookPage() {
   const featured = bookingChannels.find((c) => c.featured);

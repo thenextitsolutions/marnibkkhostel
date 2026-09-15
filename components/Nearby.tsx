@@ -1,5 +1,6 @@
 import { Footprints, Landmark, TrainFront, Plane, Utensils, MapPin } from "lucide-react";
 import { nearby, site } from "@/lib/data";
+import { safeJsonLd } from "@/lib/seo";
 import MapEmbed from "./MapEmbed";
 
 const icons: Record<string, React.ElementType> = {
@@ -87,7 +88,7 @@ export default function Nearby() {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-teal/15 blur-3xl" />
       <div className="pointer-events-none absolute -right-16 bottom-10 h-64 w-64 rounded-full bg-marigold/40 blur-3xl" />

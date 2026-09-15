@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PrefetchRoutes from "@/components/PrefetchRoutes";
 import { site } from "@/lib/data";
+import { indexFollow, safeJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-static";
 export const revalidate = false;
@@ -71,17 +72,8 @@ export const metadata: Metadata = {
     description: site.description,
     images: ["/images/og-cover.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  alternates: { canonical: site.url },
+  robots: indexFollow,
 };
 
 export const viewport: Viewport = {
@@ -133,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <PrefetchRoutes />
         <Header />

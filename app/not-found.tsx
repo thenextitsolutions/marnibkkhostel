@@ -1,6 +1,10 @@
 import Link from "next/link";
 import BookButton from "@/components/BookButton";
 
+export const metadata = {
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+};
+
 export default function NotFound() {
   return (
     <section className="container-hostel flex min-h-[60vh] flex-col items-start justify-center py-20">

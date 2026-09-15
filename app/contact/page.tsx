@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { Phone, Mail, MapPin } from "lucide-react";
 import PageIntro from "@/components/PageIntro";
 import ContactForm from "@/components/ContactForm";
 import MapEmbed from "@/components/MapEmbed";
 import { site } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with Marni BKK Hostel in Phra Nakhon, Bangkok — call, email, or send a message and we'll get back to you shortly.",
-};
+export const metadata = routeMeta(
+  "/contact",
+  "Contact",
+  "Get in touch with Marni BKK Hostel in Phra Nakhon, Bangkok — call, email, or send a message and we'll get back to you shortly."
+);
 
 export default function ContactPage() {
   return (

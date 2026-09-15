@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import PageIntro from "@/components/PageIntro";
 import { features } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Features",
-  description:
-    "Comfort beds with privacy curtains and a welcoming common lounge — see what makes staying at Marni BKK Hostel different.",
-};
+export const metadata = routeMeta(
+  "/features",
+  "Features",
+  "Comfort beds with privacy curtains and a welcoming common lounge — see what makes staying at Marni BKK Hostel different."
+);
 
 export default function FeaturesPage() {
   return (

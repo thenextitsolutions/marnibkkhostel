@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import PageIntro from "@/components/PageIntro";
 import RoomCard from "@/components/RoomCard";
 import BookButton from "@/components/BookButton";
 import { rooms } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Rooms & Dorms",
-  description:
-    "Browse dorm beds and private rooms at Marni BKK Hostel in Phra Nakhon, Bangkok — from mixed and female dorms to air-conditioned twin and double rooms.",
-};
+export const metadata = routeMeta(
+  "/rooms",
+  "Rooms & Dorms",
+  "Browse dorm beds and private rooms at Marni BKK Hostel in Phra Nakhon, Bangkok — from mixed and female dorms to air-conditioned twin and double rooms."
+);
 
 export default function RoomsPage() {
   return (

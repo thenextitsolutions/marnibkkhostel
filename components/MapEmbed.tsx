@@ -8,7 +8,9 @@ export default function MapEmbed({ className = "" }: { className?: string }) {
       src={`https://maps.google.com/maps?q=${query}&t=m&z=16&output=embed`}
       className={`h-full min-h-[320px] w-full border-0 ${className}`}
       loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
+      referrerPolicy="strict-origin-when-cross-origin"
+      sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+      allowFullScreen
     />
   );
 }

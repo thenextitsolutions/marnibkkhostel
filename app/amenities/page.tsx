@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Clock,
   Wifi,
@@ -13,12 +12,13 @@ import {
 } from "lucide-react";
 import PageIntro from "@/components/PageIntro";
 import { amenities } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Amenities",
-  description:
-    "Free Wi-Fi, 24/7 front desk, daily housekeeping, shared kitchen, laundry and more at Marni BKK Hostel in Phra Nakhon, Bangkok.",
-};
+export const metadata = routeMeta(
+  "/amenities",
+  "Amenities",
+  "Free Wi-Fi, 24/7 front desk, daily housekeeping, shared kitchen, laundry and more at Marni BKK Hostel in Phra Nakhon, Bangkok."
+);
 
 const icons: Record<string, React.ElementType> = {
   clock: Clock,

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import RoomCard from "@/components/RoomCard";
 import Nearby from "@/components/Nearby";
@@ -8,13 +7,13 @@ import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import BookButton from "@/components/BookButton";
 import { rooms, features, site } from "@/lib/data";
+import { routeMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Budget Hostel near Khaosan Road, Phra Nakhon, Bangkok",
-  description:
-    "Stay at Marni BKK Hostel in Phra Nakhon — 500 m from Khaosan Road, 2.4 km from the Grand Palace, with free Wi-Fi, dorms, and private rooms in old Bangkok.",
-  alternates: { canonical: site.url },
-};
+export const metadata = routeMeta(
+  "/",
+  "Budget Hostel near Khaosan Road, Phra Nakhon, Bangkok",
+  "Stay at Marni BKK Hostel in Phra Nakhon — 500 m from Khaosan Road, 2.4 km from the Grand Palace, with free Wi-Fi, dorms, and private rooms in old Bangkok."
+);
 
 export default function HomePage() {
   return (
