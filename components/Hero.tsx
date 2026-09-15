@@ -57,21 +57,7 @@ export default function Hero() {
           <BookButton label="See rooms" href="/rooms" variant="ghost" />
         </div>
 
-        <ul className="mt-8 flex flex-wrap gap-2">
-          <li className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-2 text-xs font-semibold text-white backdrop-blur-md md:text-sm">
-            <MapPin className="h-3.5 w-3.5 text-marigold" />
-            500 m to Khaosan Road
-          </li>
-          <li className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-2 text-xs font-semibold text-white backdrop-blur-md md:text-sm">
-            <Wifi className="h-3.5 w-3.5 text-marigold" />
-            Free Wi-Fi
-          </li>
-          <li className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-2 text-xs font-semibold text-white backdrop-blur-md md:text-sm">
-            <Clock className="h-3.5 w-3.5 text-marigold" />
-            24/7 front desk
-          </li>
-        </ul>
-
+     
         <div className="mt-10 flex w-full max-w-xl items-end gap-2">
           {heroSlides.map((s, i) => (
             <button
