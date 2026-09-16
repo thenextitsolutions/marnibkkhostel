@@ -1,7 +1,7 @@
 // Central content store — photos sourced from marnibkkhostel.com.
 
 export const site = {
-  name: "Marni BKK Hostel",
+  name: "Marni BKK Hostel - Budget Stay, Bangkok",
   tagline: "Stay, explore, relax.",
   description:
     "Stay at Marni BKK Hostel in Phra Nakhon, offering clean dorms and private rooms, free WiFi, modern amenities, and easy access to top attractions.",

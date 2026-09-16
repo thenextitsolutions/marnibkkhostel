@@ -19,13 +19,19 @@ export function canonicalUrl(path: SiteRoute) {
   return path === "/" ? site.url : `${site.url}${path}`;
 }
 
-export function routeMeta(path: SiteRoute, title: string, description: string): Metadata {
+export function routeMeta(
+  path: SiteRoute,
+  title: string,
+  description: string,
+  options?: { absolute?: boolean }
+): Metadata {
   const url = canonicalUrl(path);
   return {
-    title,
+    title: options?.absolute ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
-    openGraph: { url },
+    openGraph: { url, title },
+    twitter: { title },
     robots: indexFollow,
   };
 }

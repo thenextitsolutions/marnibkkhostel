@@ -79,7 +79,7 @@ export default function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2.5">
           <Image
             src="/images/logo-mark.jpeg"
-            alt="Marni BKK Hostel logo"
+            alt="Marni BKK Hostel"
             width={80}
             height={80}
             className="h-[3.25rem] w-[3.25rem] shrink-0 rounded-full object-cover ring-2 ring-teal/80 ring-offset-2 ring-offset-white"

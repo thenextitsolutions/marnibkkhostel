@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MapPin, Wifi, Clock } from "lucide-react";
-import { heroSlides } from "@/lib/data";
+import { heroSlides, site } from "@/lib/data";
 import BookButton from "./BookButton";
 
 export default function Hero() {
@@ -25,7 +25,7 @@ export default function Hero() {
         <Image
           key={s.image}
           src={s.image}
-          alt={s.headline}
+          alt={`${site.name} — ${s.headline}`}
           fill
           priority={i === 0}
           sizes="100vw"
@@ -44,8 +44,11 @@ export default function Hero() {
         <div key={slide.eyebrow} className="hero-copy max-w-3xl">
           <p className="eyebrow shadow-[0_8px_24px_rgba(214,255,61,0.35)]">{slide.eyebrow}</p>
           <h1 className="mt-5 text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl">
-            {slide.headline}
+            {site.name}
           </h1>
+          <p className="mt-4 max-w-3xl text-xl font-display font-bold leading-snug text-white/90 sm:text-2xl md:text-4xl">
+            {slide.headline}
+          </p>
           <p className="mt-5 max-w-lg text-base text-white/80 md:text-lg">
             A lively, budget-friendly stay in Phra Nakhon — 500 m from Khaosan Road and a
             short hop to the Grand Palace.

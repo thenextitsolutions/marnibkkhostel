@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
   title: {
-    default: `${site.name} - Budget Stay near Khaosan Road, Phra Nakhon, Bangkok`,
+    default: site.name,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
-    title: `${site.name} - Budget Stay near Khaosan Road, Phra Nakhon, Bangkok`,
+    title: site.name,
     description: site.description,
     url: site.url,
     siteName: site.name,
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} - Budget Stay near Khaosan Road, Phra Nakhon, Bangkok`,
+    title: site.name,
     description: site.description,
     images: ["/images/og-cover.jpg"],
   },

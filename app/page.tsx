@@ -11,8 +11,9 @@ import { routeMeta } from "@/lib/seo";
 
 export const metadata = routeMeta(
   "/",
-  "Budget Hostel near Khaosan Road, Phra Nakhon, Bangkok",
-  "Stay at Marni BKK Hostel in Phra Nakhon — 500 m from Khaosan Road, 2.4 km from the Grand Palace, with free Wi-Fi, dorms, and private rooms in old Bangkok."
+  site.name,
+  site.description,
+  { absolute: true }
 );
 
 export default function HomePage() {
