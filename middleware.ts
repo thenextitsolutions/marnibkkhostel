@@ -20,15 +20,14 @@ const ALLOWED_QUERY = new Set([
   "srsltid",
 ]);
 
-function gone() {
-  return new NextResponse("Gone", {
-    status: 410,
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "X-Robots-Tag": "noindex, nofollow",
-      "Cache-Control": "public, max-age=86400",
-    },
-  });
+function rewriteGone(request: NextRequest) {
+  const url = request.nextUrl.clone();
+  url.pathname = "/gone";
+  url.search = "";
+  const response = NextResponse.rewrite(url, { status: 410 });
+  response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  response.headers.set("Cache-Control", "public, max-age=86400");
+  return response;
 }
 
 function hasJunkQuery(searchParams: URLSearchParams, search: string) {
@@ -52,7 +51,13 @@ export function middleware(request: NextRequest) {
   }
 
   if (hasJunkQuery(searchParams, search)) {
-    return gone();
+    return rewriteGone(request);
+  }
+
+  if (pathname === "/gone") {
+    const response = NextResponse.next();
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return response;
   }
 
   const hostname = (request.headers.get("host") ?? "").split(":")[0];
